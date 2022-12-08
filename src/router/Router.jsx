@@ -11,6 +11,8 @@ import Spinner from "react-bootstrap/Spinner";
 import Navigationbar from "../components/nav/Navigationbar";
 import { useDispatch, useSelector } from "react-redux";
 import { actionLoginSync } from "../redux/actions/userActions";
+import LoginWithPhone from "../components/LoginWithPhone";
+import CodeVerificaction from "../components/CodeVerification";
 
 const Router = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(undefined);
@@ -68,6 +70,8 @@ const Router = () => {
       <Routes>
         <Route element={<PublicRouter isAuthentication={isLoggedIn} />}>
           <Route path="/register" element={<Register />} />
+          <Route path="/phoneLogin" element={<LoginWithPhone />} />
+          <Route path="/verification" element={<CodeVerificaction />} />
           <Route path="/" element={<Login />} />
         </Route>
         <Route element={<PrivateRouter isAuthentication={isLoggedIn} />}>

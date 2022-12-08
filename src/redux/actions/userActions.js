@@ -1,8 +1,70 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, signInWithPopup } from "firebase/auth";
-import { auth } from "../../firebase/firebaseConfig";
+import { auth, dataBase } from "../../firebase/firebaseConfig";
 import { google } from "../../firebase/firebaseConfig";
+import { doc, setDoc, getDoc } from "firebase/firestore";
 
 import { userTypes } from "../types/userTypes";
+
+const searchInfo=async(uid,displayName,email,photoURL,phoneNumber)=>{
+  const docRef=doc(dataBase,`usuarios/${uid}`)
+        const docu=  await  getDoc(docRef)
+        const dataFinal= docu.data()
+        console.log(dataFinal);
+        
+        if (dataFinal) {
+          
+        }
+        else{
+          setDoc(docRef,{email:email,rol:"usuario",name:displayName,phoneNumber,avatar: photoURL})
+
+        }
+
+}
+
+export const actionSignPhoneAsync = (codigo) => {
+  return (dispatch) => {
+    const confirmationResult = window.confirmationResult;
+    confirmationResult
+      .confirm(codigo)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        const { displayName, email, phoneNumber, accessToken, photoURL, uid } =
+          user.auth.currentUser;
+        dispatch(
+          actionSignPhoneSync({
+            name: displayName,
+            email,
+            accessToken,
+            phoneNumber,
+            avatar: photoURL,
+            uid,
+            error: false,
+          })
+        );
+        searchInfo(uid, displayName, email, photoURL, phoneNumber)
+
+
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(
+          actionSignPhoneSync({ error: true, errorMessage: error.message })
+        );
+      });
+  };
+};
+export const actionSignPhoneSync = (user) => {
+  return {
+    type: userTypes.USER_SIGNPHONE,
+    payload: { ...user },
+  };
+};
+export const actionAuthenticationSync = () => {
+  return {
+    type: userTypes.USER_AUTHENTICATION,
+  };
+};
 
 export const actionRegisterAsync = ({ email, password, name, avatar, phoneNumber }) => {
   return (dispatch) => {
@@ -78,7 +140,7 @@ export const loginProviderAsync = (provider) => {
         console.log(user)
         const { displayName, accessToken, photoURL, phoneNumber } = user.auth.currentUser
         dispatch(actionLoginSync({
-          email: user.email, 
+          email: user.email,
           name: displayName,
           accessToken,
           avatar: photoURL,
