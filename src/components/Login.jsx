@@ -6,7 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch } from "react-redux";
 import { schemaLogin } from "../services/data";
 import { actionLoginAsync, loginProviderAsync } from "../redux/actions/userActions";
-import googleLogo from "../assets/imagenes/gogle_logo.png"
+import googleLogo from "../assets/imagenes/gogle_logo.png";
+import phoneIcon from "../assets/imagenes/phone-icon.png";
 
 const Login = () => {
   const dispatch=useDispatch()
@@ -47,6 +48,7 @@ const Login = () => {
         Iniciar Sesión
       </Button>
       <img src={googleLogo} alt="Google" style={{width: 50, marginLeft: 30}} onClick={handleLoginGoogle} />
+      <img src={phoneIcon} alt="Phone icon" className="phoneIcon"/>
     </Form>
     <Link to="/Register">¿Desea crear una cuenta?</Link>
   </div>
