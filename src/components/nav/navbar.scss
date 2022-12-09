@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
+.appName{
+    height: 100%;
+    font-family: 'Arizonia';
+    h2{
+        font-size: calc(3em + 1vh);
+        color: aqua;
+    }
+}
+.navbar{
+    background-color:  #042842;
+}
+.imgLogo{
+    width: 50px;
+    height: auto;
+}
+
+.navLink{
+    color: black;
+    text-decoration: none;
+    margin: auto 0;
+}
+.navLink:hover{
+    color: blue;
+}
+
+.navLink--active{
+    font-weight: bolder;
+}
