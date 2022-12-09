@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebaseConfig";
 import Swal from 'sweetalert2';
+import { Button, FloatingLabel, Form } from "react-bootstrap";
 
 const LoginWithPhone = () => {
     const navigate = useNavigate();
@@ -66,8 +67,19 @@ const LoginWithPhone = () => {
     return (
         <div className="signin">
             <h2>SignIn </h2>
-            <form onSubmit={handleSubmit}>
-                <label>
+            <Form onSubmit={handleSubmit}>
+                <FloatingLabel label="Phone Number">
+                    <Form.Control
+                        type="number"
+                        autoComplete="off"
+                        placeholder="(+57) Enter your phone number"
+                        onChange={(e) => {
+                            setPhoneNumber(e.target.value);
+                        }}
+                        value={phoneNumber}
+                    />
+                </FloatingLabel>
+                {/* <label>
                     Phone number
                     <input
                         type="number"
@@ -77,10 +89,10 @@ const LoginWithPhone = () => {
                         value={phoneNumber}
                         placeholder=" + 57 Ingrese numero de telefono"
                     />
-                </label>
+                </label> */}
                 <div id="recaptch-container"> </div>
-                <button type="submit"> Sign in</button>
-            </form>
+                <Button type="submit" className="mt-3 mb-3"> Sign in</Button>
+            </Form>
         </div>
     );
 }
