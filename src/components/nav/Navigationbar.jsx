@@ -16,7 +16,7 @@ const Navigationbar = ({ isAuthentication }) => {
   const logOut = () => {
     dispatch(actionLogoutAsync());
   };
-  return (
+  return ( 
     <Navbar  expand="md" className="mb-3 navbar">
       <Container fluid>
         <img src={logoHeader} alt='Abarrotado Logo' className="imgLogoNav"/>
