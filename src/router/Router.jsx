@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionLoginSync } from "../redux/actions/userActions";
 import LoginWithPhone from "../components/LoginWithPhone";
 import CodeVerificaction from "../components/CodeVerification";
+import NavigationMenu from "../components/nav/NavigationMenu";
 
 const Router = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(undefined);
@@ -67,6 +68,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Navigationbar isAuthentication={isLoggedIn} />
+      <NavigationMenu isAuthentication={isLoggedIn} />
       <Routes>
         <Route element={<PublicRouter isAuthentication={isLoggedIn} />}>
           <Route path="/register" element={<Register />} />
