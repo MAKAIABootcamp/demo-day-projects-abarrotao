@@ -2,12 +2,9 @@ import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebaseConfig";
-import Swal from 'sweetalert2'
-// import { loginProviderAsync } from "../redux/actions/userActions";
-import { useDispatch } from "react-redux";
+import Swal from 'sweetalert2';
 
 const LoginWithPhone = () => {
-    const dispatch = useDispatch()
     const navigate = useNavigate();
     const [phoneNumber, setPhoneNumber] = useState("");
     const validatePhoneNumber = (numberPhone, lengthString) => {
@@ -39,10 +36,10 @@ const LoginWithPhone = () => {
             })
             .catch((error) => {
                 console.log(error);
-                // Swal.fire('Upps ', 'intenta de nuevo  ', 'error'
+                Swal.fire('Upps ', 'intenta de nuevo  ', 'error'
 
-                // )
-                // navigate("/intro")
+                )
+                navigate("/")
 
             });
     };

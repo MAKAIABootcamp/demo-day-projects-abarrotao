@@ -6,7 +6,8 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { actionLogoutAsync } from "../../redux/actions/userActions";
-import  './navbar.scss'
+import logoHeader from '../../assets/abarrotados-logo2.jpeg'
+import  './navbar.scss';
 
 
 
@@ -18,6 +19,7 @@ const Navigationbar = ({ isAuthentication }) => {
   return (
     <Navbar  expand="md" className="mb-3 navbar">
       <Container fluid>
+        <img src={logoHeader} alt='Abarrotado Logo' className="imgLogoNav"/>
         <div className="appName"><h2 >Abarrotado</h2></div>
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${"md"}`} />
         <Navbar.Offcanvas

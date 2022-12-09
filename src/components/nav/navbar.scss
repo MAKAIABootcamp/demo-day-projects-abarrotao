@@ -7,6 +7,12 @@
         color: aqua;
     }
 }
+
+.imgLogoNav{
+    height: calc(3em + 1vh);
+    object-fit: contain;
+    border-radius: 50%;
+}
 .navbar{
     background-color:  #042842;
 }
