@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { glocersReducer } from "../reducers/glocersReducer";
 import { userReducer } from "../reducers/userReducer";
 const reducer = {
-  userStore: userReducer,
-  
+  userStore: userReducer, 
+  glocersStore: glocersReducer 
 };
 const store = configureStore({
   reducer,

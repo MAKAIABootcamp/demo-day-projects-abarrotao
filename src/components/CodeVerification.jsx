@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { actionAuthenticationSync, actionSignPhoneAsync } from "../redux/actions/userActions";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../firebase/firebaseConfig";
+import { actionSignPhoneAsync } from "../redux/actions/userActions";
 
 
 const CodeVerificaction = () => {
@@ -34,7 +32,7 @@ const CodeVerificaction = () => {
   };
   useEffect(() => {
     setTimeout(()=>{navigate("/phoneLogin")},30000)
-  }, [])
+  }, [navigate])
   
   return (
     <div className="verification"> 

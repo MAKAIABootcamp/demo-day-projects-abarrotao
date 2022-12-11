@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { Badge, Card } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+// import React, { useEffect } from "react";
+// import { Badge, Card } from "react-bootstrap";
+// import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
 
