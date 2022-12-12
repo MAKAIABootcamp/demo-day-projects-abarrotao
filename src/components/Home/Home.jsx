@@ -6,6 +6,7 @@ import { actionGetGlocersAsync } from "../../redux/actions/glocersActions";
 const Home = () => {
     const { glocers } = useSelector((store) => store.glocersStore);
     const dispatch = useDispatch()
+    console.log(glocers);
 
     useEffect(() => {
         dispatch(actionGetGlocersAsync())
@@ -18,10 +19,10 @@ const Home = () => {
                 glocers && glocers.length ? (
                     glocers.map((glocer, index) => (
                         <Card key={index} style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={glocer.imagen} style={{ height: '10rem', objectFit: 'contain' }} />
-                            <Badge bg="warning" text="dark">{glocer.direccion}</Badge>
+                            <Card.Img variant="top" src={glocer.image} style={{ height: '10rem', objectFit: 'contain' }} />
+                            <Badge bg="warning" text="dark">{glocer.location}</Badge>
                             <Card.Body>
-                                <Card.Title>{glocer.Nombre}</Card.Title>
+                                <Card.Title>{glocer.name}</Card.Title>
                                 <Card.Text>{`Tienda:${glocer.description}`}</Card.Text>
                             </Card.Body>
                         </Card>
