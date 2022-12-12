@@ -3,7 +3,7 @@ import { glocersReducer } from "../reducers/glocersReducer";
 import { userReducer } from "../reducers/userReducer";
 const reducer = {
   userStore: userReducer, 
-  glocersStore: glocersReducer 
+  glocerStore: glocersReducer 
 };
 const store = configureStore({
   reducer,

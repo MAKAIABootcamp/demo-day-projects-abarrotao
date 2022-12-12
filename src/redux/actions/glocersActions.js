@@ -3,13 +3,13 @@ import { dataBase } from "../../firebase/firebaseConfig";
 import { glocersTypes } from "../types/glocersTypes"
 
 const collectionName = 'tiendas';
-const glocersCollection = collection(dataBase, collectionName);
-
 
 export const actionGetGlocersAsync = () => {
     return async (dispatch) => {
-        const querySnapshot = await getDocs(glocersCollection);
+        const glocersCollection = collection(dataBase, collectionName);
+        const querySnapshot = await getDocs(glocersCollection);        
         const glocers = [];
+        
         try {
             querySnapshot.forEach(element => {
                 const glocer = {
@@ -17,6 +17,7 @@ export const actionGetGlocersAsync = () => {
                     ...element.data()
                 }
                 glocers.push(glocer)
+                console.log(glocers)
             });
         } catch (error) {
             console.log(error);
@@ -29,6 +30,8 @@ export const actionGetGlocersAsync = () => {
 const actionGetGlocersSync = (glocers) => {
     return {
         type: glocersTypes.GET_GLOCERS,
-        payload: glocers
+        payload: {
+            glocers: glocers,
+          },
     }
 }
