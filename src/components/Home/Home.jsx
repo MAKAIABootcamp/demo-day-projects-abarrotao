@@ -1,14 +1,15 @@
 import React, { useEffect } from "react";
 import { Badge, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { actionGetGlocersAsync } from "../../redux/actions/glocersActions";
+import './home.scss';
 
 const Home = () => {
     const { glocers } = useSelector((store) => store.glocerStore);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+
     console.log(glocers);
 
     useEffect(() => {
@@ -17,18 +18,21 @@ const Home = () => {
 
 
     return (
-        <div className="main__home">
+        <div className="home">
+
             {
                 glocers && glocers.length ? (
                     glocers.map((glocer, index) => (
-                        <Card key={index} style={{ width: '18rem' }} onClick={() => {navigate(`/tienda${glocer.name}`);}}>
-                            <Card.Img variant="top" src={glocer.image} style={{ height: '10rem', objectFit: 'contain' }} />
-                            <Badge bg="warning" text="dark">{glocer.seller}</Badge>
-                            <Card.Body>
-                                <Card.Title>{glocer.name}</Card.Title>
-                                <Card.Text>{`Tienda:${glocer.description}`}</Card.Text>
-                            </Card.Body>
-                        </Card>
+                        <section>
+                            <Card key={index} style={{ width: '18rem', height: '50%' }} onClick={() => { navigate(`/tienda${glocer.name}`); }}>
+                                <Card.Img variant="top" src={glocer.image} style={{ height: '10rem', objectFit: 'contain' }} />
+                                <Badge bg="warning" text="dark">{glocer.name}</Badge>
+                                <Card.Body>
+                                    <Card.Title>{glocer.seller}</Card.Title>
+                                    <Card.Text>{`${glocer.description}`}</Card.Text>
+                                </Card.Body>
+                            </Card>
+                        </section>
                     ))
                 ) : (<></>)
             }
