@@ -25,7 +25,7 @@ const Home = () => {
                     glocers.map((glocer, index) => (
                         <section>
                             <Card key={index} style={{ width: '18rem', height: '50%' }} onClick={() => { navigate(`/tienda${glocer.name}`); }}>
-                                <Card.Img variant="top" src={glocer.image} style={{ height: '10rem', objectFit: 'contain' }} />
+                                <Card.Img variant="top" src={glocer.image} style={{ height: '10rem', objectFit: 'cover' }} className='imgCard'/>
                                 <Badge bg="warning" text="dark">{glocer.name}</Badge>
                                 <Card.Body>
                                     <Card.Title>{glocer.seller}</Card.Title>

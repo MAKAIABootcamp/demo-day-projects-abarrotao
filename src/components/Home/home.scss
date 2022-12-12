@@ -1,14 +1,16 @@
 .home {
-    height: 75vh;
+    height: 70vh;
     display: flex;
+    justify-content:center;
     flex-wrap: wrap;
     gap: 1rem;
     padding: 0 1%;
+    overflow-y: scroll;
+    
 
-    section {
+    section {       
         display: block;
         height: calc(14em + 14vh);
-        border: 1px solid #0f0f0f;
-
+        border: 1px solid #0f0f0f; 
     }
 }
