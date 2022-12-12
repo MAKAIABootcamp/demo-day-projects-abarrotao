@@ -2,7 +2,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { dataBase } from "../../firebase/firebaseConfig";
 import { glocersTypes } from "../types/glocersTypes"
 
-const collectionName = 'glocers';
+const collectionName = 'tiendas';
 const glocersCollection = collection(dataBase, collectionName);
 
 
