@@ -20,7 +20,7 @@ const Home = () => {
                     glocers.map((glocer, index) => (
                         <Card key={index} style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={glocer.image} style={{ height: '10rem', objectFit: 'contain' }} />
-                            {/* <Badge bg="warning" text="dark">{glocer.location}</Badge> */}
+                            <Badge bg="warning" text="dark">{glocer.seller}</Badge>
                             <Card.Body>
                                 <Card.Title>{glocer.name}</Card.Title>
                                 <Card.Text>{`Tienda:${glocer.description}`}</Card.Text>
