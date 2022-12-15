@@ -1,9 +1,8 @@
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../firebase/firebaseConfig";
+import { auth } from "../../firebase/firebaseConfig";
 import Swal from 'sweetalert2';
-import { Button, FloatingLabel, Form } from "react-bootstrap";
 
 const LoginWithPhone = () => {
     const navigate = useNavigate();
@@ -67,9 +66,9 @@ const LoginWithPhone = () => {
     return (
         <div className="signin">
             <h2>SignIn </h2>
-            <Form onSubmit={handleSubmit}>
-                <FloatingLabel label="Phone Number">
-                    <Form.Control
+            <form onSubmit={handleSubmit}>
+                <div label="Phone Number">
+                    <div
                         type="number"
                         autoComplete="off"
                         placeholder="(+57) Enter your phone number"
@@ -78,7 +77,7 @@ const LoginWithPhone = () => {
                         }}
                         value={phoneNumber}
                     />
-                </FloatingLabel>
+                </div>
                 {/* <label>
                     Phone number
                     <input
@@ -91,8 +90,8 @@ const LoginWithPhone = () => {
                     />
                 </label> */}
                 <div id="recaptch-container"> </div>
-                <Button type="submit" className="mt-3 mb-3"> Sign in</Button>
-            </Form>
+                <button type="submit" className="mt-3 mb-3"> Sign in</button>
+            </form>
         </div>
     );
 }
