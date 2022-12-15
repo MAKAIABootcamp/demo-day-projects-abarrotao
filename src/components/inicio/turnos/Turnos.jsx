@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 import Pedidos from './Pedidos'
 
 const Turnos = () => {
-  const apiTienda = "https://abarrotado-production.up.railway.app/api/v1/"
+  const apiTienda = "https://abarrotao-backend-production.up.railway.app/api/v1/"
   const [tienda, setTienda] = useState([])
 
   useEffect(() => {

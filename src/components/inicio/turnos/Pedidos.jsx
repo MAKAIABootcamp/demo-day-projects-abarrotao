@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 const Pedidos = ({setIsModal, isModal}) => {
 
-  const apiTienda = "https://abarrotado-production.up.railway.app/api/v1/"
+  const apiTienda = "https://abarrotao-backend-production.up.railway.app/api/v1/"
   const [usuario, setUsuario] = useState([])
 
   useEffect(() => {

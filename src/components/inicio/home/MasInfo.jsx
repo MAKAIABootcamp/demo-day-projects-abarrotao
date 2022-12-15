@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 
 const MasInfo = () => {
 
-  const apiTienda = "https://abarrotado-production.up.railway.app/api/v1/"
+  const apiTienda = "https://abarrotao-backend-production.up.railway.app/api/v1/"
   const { id } = useParams();
   const [tienda, setTienda] = useState({})
 

@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 const Buscar = () => {
 
   
-  const apiTienda = "https://abarrotado-production.up.railway.app/api/v1/"
+  const apiTienda = "https://abarrotao-backend-production.up.railway.app/api/v1/"
   const { register, handleSubmit } = useForm();
   const [tienda, setTienda] = useState([]);
   const [busqueda, setBusqueda] = useState({});
